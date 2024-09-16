@@ -1,40 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Sistema de Gerenciamento de Usuários - Loja SneakerShop
 
-## Getting Started
+Documentação do **Sistema de Gerenciamento de Usuários** para a loja **SneakerShop**. O sistema foi desenvolvido, visando proporcionar uma interface intuitiva e funcional para os administradores da loja, facilitando a gestão de usuários de forma eficiente.
 
-First, run the development server:
+#### Objetivo
+
+O objetivo principal desta sistema é oferecer uma solução simples e eficaz para os administradores do SneakerShop monitorarem e gerenciarem os perfis de usuários, incluindo funcionalidades como:
+
+- Criação, edição e remoção de contas de usuários
+- Visualização de histórico de operações recentes
+- Visualização de todos os usuários cadastrados
+
+#### Principais Telas do Design
+
+1. **Login**: Página para acesso dos administradores no sistema.
+
+   ![Perfil de Usuário](./public/design/login-pag.png)
+
+2. **Home**: Exibe um resumo das funcionalidades do sistema, informações básicas de total de usuários e informações das operações recentes dos feitas pelos administradores.
+
+   ![Página Home](./public/design/home-pag.png)
+
+3. **Lista de Usuários**: Uma tela onde os administradores podem visualizar e pesquisar usuários. A lista inclui informações básicas como nome, e-mail, status da conta e ações rápidas para editar ou remover contas.
+
+   ![Lista de Usuários](./public/design/users-pag.png)
+
+4. **Cadastro/Edição de Usuário**: Interface para cadastrar ou modificar os dados dos usuários, como nome, e-mail, permissões e status. Esta tela foi desenhada para ser clara e direta, reduzindo a complexidade de gerenciamento.
+
+   ![Cadastro e Edição de Usuário](./public/design/cad-pag.png)
+
+
+
+Para mais detalhes, acesse o [projeto no Figma](https://www.figma.com/design/SJuZt1hepNeWCXbaC9Ls9p/Gerenciamento-de-Usu%C3%A1rios---SneakerShop?node-id=3019-2807&t=JGKBrdmabTsH7u8N-1).
+
+---
+
+## Execução
+
+Primeiro, execute o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
