@@ -1,0 +1,20 @@
+  .main {
+    padding: 2rem;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .headerText {
+    max-width: 60%;
+  }
+  
+  .headerImage img {
+    max-width: 100%;
+    height: auto;
+  }
+  

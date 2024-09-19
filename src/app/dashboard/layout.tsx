@@ -1,12 +1,12 @@
 'use client'
 
-import { useEffect } from "react";
+import { Children, useEffect } from "react";
 import { redirect } from 'next/navigation';
 
 import Header from "@/components/Header";
 import SideBar from "@/components/SideBar";
 
-export default function DashboardLayout() {
+export default function DashboardLayout({ children  }) {
     useEffect(() => {
       // Verifica se o token está presente no localStorage (simulação de autenticação)
       const token = localStorage.getItem('token');
@@ -17,8 +17,12 @@ export default function DashboardLayout() {
     }, [])
 
     return(
-      <div>
+      <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
         <Header/>
+        <div style={{ display: 'flex', flex: 1 }}>
+          <SideBar/>
+          {children}
+        </div>
       </div>
     )
 }

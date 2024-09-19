@@ -1,0 +1,23 @@
+.statistics {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  
+  .statItem {
+    background-color: #f0f0f0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    width: 30%;
+  }
+  
+  .statItem h3 {
+    margin-bottom: 1rem;
+  }
+  
+  .statItem p {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
