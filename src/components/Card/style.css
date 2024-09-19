@@ -1,0 +1,49 @@
+@import url('../../app/globals.css');
+
+* {
+    font-family: 'Satoshi-Variable';
+    font-size: 16px;
+    color: #16151C;
+}
+
+.container__card {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    width: 100%;
+    gap: 8px;
+}
+
+.container__card > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card__header > p {
+    font-family: 'Satoshi-Variable';
+    font-size: 16px;
+    color: #16151C;
+}
+
+.card__icon {
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #7152F310;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card__value > p {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.card__date p {
+    font-size: 13px;
+    color: #A2A1A8;
+}

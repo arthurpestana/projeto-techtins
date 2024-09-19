@@ -1,0 +1,29 @@
+@import url("../../app/globals.css");
+
+* {
+    font-family: "Satoshi-Variable";
+    color: #16151C;
+}
+
+.container__userItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userItem--placeholder * {
+    color: #A2A1A8;
+}
+
+.item__component {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+    align-items: center;
+}
+
+.item__icon {
+    padding: 5px;
+    background-color: #A2A1A820;
+    border-radius: 999px;
+}

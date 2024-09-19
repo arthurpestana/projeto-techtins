@@ -1,0 +1,83 @@
+@import url('../../globals.css');
+
+* {
+    color: #16151C;
+    font-family: "Satoshi-Variable";
+}
+
+.container__main {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    background-color: #D9E1E110;
+    gap: 32px;
+}
+
+.main__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    width: 100%;
+    gap: 32px;
+}
+
+.header__info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 65%;
+}
+
+.header__info h1 {
+    font-family: "Satoshi-Variable";
+    font-size: 39px;
+    font-weight: 700;
+}
+
+
+.header__info p {
+    font-family: "Satoshi-Variable";
+    font-size: 16px;
+    text-align: justify;
+    color: #16151C80
+}
+
+.header__image {
+    width: 35%;
+}
+
+.main__dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.main__recent-activities {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 24px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    gap: 16px;
+}
+
+.recent__title h2 {
+    font-family: "Satoshi-Variable";
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.recent__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+    padding: 0px 16px;
+}

@@ -9,16 +9,31 @@
     align-items: start;
     flex-direction: column;
     border-right: 2px solid #A2A1A820;
-    gap: 32px;
+    gap: 12px;
 }
 
 .container__item {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 12px;
+    width: 100%;
+    padding: 16px 16px 16px 24px;
+    border-radius: 4px 16px 16px 4px;
+    cursor: pointer;
+}
+
+.item--active {
+    background-color: #7152F310;
+    border-left: 4px solid #7152F3;
 }
 
 .item__text {
-    
+    font-family: 'Satoshi-Variable';
+    font-weight: 500;
+    font-size: 16px;
+    color: #A2A1A8;
+}
+
+.text--active {
+    color: #7152F3;
 }

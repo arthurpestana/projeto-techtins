@@ -1,4 +1,4 @@
-import React, { act } from "react";
+import React from "react";
 import Image from "next/image";
 
 
@@ -13,9 +13,9 @@ interface MenuProps {
 
 const MenuItem: React.FC<MenuProps> = ({text, active, Icon, href}) => {
     return (
-        <div className={active?"container__item active-item":"container__item"}>
-            {Icon&&<span><Icon stroke={active?"#7152F3":"#A2A1A8"}/></span>}
-            <a href={href} className={active?'item__text text-active':"item__text"}>{text}</a>
+        <div className={active?"container__item item--active":"container__item"}>
+            {Icon&&<Icon stroke={active?"#7152F3":"#A2A1A8"} width="24" height="24"/>}
+            <a href={href} className={active?'item__text text--active':"item__text"}>{text}</a>
         </div>
     )
 }

@@ -37,7 +37,7 @@
 .user__bell {
     padding: 10px;
     border-radius: 12px;
-    background-color: #D9E1E180;
+    background-color: #D9E1E160;
 }
 
 .user__info {
@@ -45,15 +45,15 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
-    outline: 1px solid #16151C80;
-    border-radius: 16px;
+    outline: 1px solid #16151C20;
+    border-radius: 12px;
     padding: 5px 10px;
 }
 
 .user__icon {
     padding: 10px;
     border-radius: 999px;
-    background-color: #D9E1E180;
+    background-color: #D9E1E160;
 }
 
 .user__name {

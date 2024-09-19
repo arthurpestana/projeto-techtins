@@ -34,6 +34,12 @@ Para mais detalhes, acesse o [projeto no Figma](https://www.figma.com/design/SJu
 
 ---
 
+## Instalar dependências
+
+#### Pacote @svgr/webpack
+
+```npm install @svgr/webpack --save-dev```
+
 ## Execução
 
 Primeiro, execute o servidor de desenvolvimento:
