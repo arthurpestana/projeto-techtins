@@ -2,26 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '../assets/fonts/satoshi.css';
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /*VALORES PRIMITIVOS*/
+
+  /*Gray Scale*/
+  --dark-100: #16151C;
+  --dark-80: #16151C80;
+  --dark-20: #16151C20;
+
+  --gray-100: #A2A1A8;
+  --gray-80: #A2A1A880;
+  --gray-20: #A2A1A820;
+  --gray-10: #A2A1A810;
+  --gray-5: #A2A1A805;
+
+  --white-100: #FFFFFF;
+  --white-80: #FFFFFF80;
+  --white-20: #FFFFFF20;
+
+  --light-100: #D9E1E1;
+  --light-80: #D9E1E180;
+  --light-20: #D9E1E120;
+  --light-10: #D9E1E110;
+  --light-5: #D9E1E105;
+
+  /*Paleta de Cores*/
+  --brand-500-5: #7152F305;
+  --brand-500-10: #7152F310;
+  --brand-500: #7152F3;
+  --brand-800: #3517B4;
+  --brand-900: #250C92;
+
+  --yellow-100: #EFBE12;
+  --yellow-5: #EFBE1205;
+
+  --green-100: #3FC28A;
+  --green-5: #3FC28A05;
+
+  --red-100: #F45B69;
+  --red-5: #F45B6905;
+
+  /*TOKENS*/
+  --text-primary: var(--dark-100)
+  --text-brand: var(--brand-500)
+  --text-inverted: var(--white-100)
+  --text-placeholder: var(--gray-100)
+
+  --bg-brand: var(--brand-500)
+  --bg-primary: var(--white-100)
+  --bg-secondary: var(--gray-100)
+  --bg-inverted: var(--gray-100)
+
+  --text-mini: 10;
+  --text-small: 13;
+  --text-base: 16;
+  --text-large: 20;
+  --text-xl: 49;
+  --text-2xl: 61;
+
+  --font-base: 'Satoshi';
+  --font-variable: 'Satoshi-Variable';
+
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-bold: 700;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
