@@ -1,0 +1,77 @@
+@import url('../../app/globals.css');
+
+* {
+    color: #16151C;
+    font-family: 'Satoshi-Variable'
+}
+
+.container__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 16px 32px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:8px;
+}
+
+.header__logo h2 {
+    font-family: "Satoshi-Variable";
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.header__user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+.user__bell {
+    padding: 10px;
+    border-radius: 12px;
+    background-color: #D9E1E180;
+}
+
+.user__info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    outline: 1px solid #16151C80;
+    border-radius: 16px;
+    padding: 5px 10px;
+}
+
+.user__icon {
+    padding: 10px;
+    border-radius: 999px;
+    background-color: #D9E1E180;
+}
+
+.user__name {
+    display: flex;
+    flex-direction: column;
+}
+
+.user__name .name__title {
+    font-family: 'Satoshi-Variable';
+    font-size: 14px;
+    color: #16151C;
+    font-weight: 500;
+    line-height: 130%;
+}
+
+.user__name .name__func {
+    font-family: 'Satoshi-Variable';
+    font-size: 13px;
+    color: #16151C80;
+    font-weight: 300;
+}
