@@ -54,4 +54,17 @@ pnpm dev
 
 Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
+## Lista de Tarefas
+
+- [x] **Desing**
+- [x] **Desenvolver todas as páginas**
+  - [x] Login
+  - [x] Home
+  - [x] Lista de Usuários
+  - [x] Cadastro de Usuários
+- [ ] **Configurar todas as funcionalidades das páginas**
+- [ ] **Integrar com API RESTful**
+- [ ] **Gerenciar estados**
+
+
 
