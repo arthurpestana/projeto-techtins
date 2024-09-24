@@ -1,0 +1,93 @@
+@import url('../../../globals.css');
+
+* {
+    color: #16151C;
+    font-family: "Satoshi-Variable";
+    font-size: 16px;
+}
+
+.container__main {
+    display: flex;
+    flex: 5;
+    flex-direction: column;
+    padding: 32px;
+    background-color: #D9E1E110;
+    gap: 24px;
+}
+
+.main__head {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.main__head * {
+    width: auto;
+}
+
+.main__head h1{
+    font-family: "Satoshi-Variable";
+    font-weight: 700;
+    font-size: 49px;
+    color: #16151C;
+}
+
+.main__form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 24px;
+}
+
+.form__header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form__header h2 {
+    font-family: "Satoshi-Variable";
+    font-size: 20px;
+    font-weight: 500;
+    color: #16151C;
+}
+
+.form__header p {
+    font-family: "Satoshi-Variable";
+    font-size: 16px;
+    font-weight: 400;
+    color: #A2A1A8;
+}
+
+.form__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    height: auto;
+}
+
+.input__image {
+    width: 100%;
+}
+
+.input__text {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    gap: 32px;
+}
+
+.form__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+}

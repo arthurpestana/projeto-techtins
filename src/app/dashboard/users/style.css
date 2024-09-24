@@ -1,0 +1,54 @@
+@import url('../../globals.css');
+
+* {
+    color: #16151C;
+    font-family: "Satoshi-Variable";
+}
+
+.container__main {
+    flex: 5;
+    padding: 32px;
+    background-color: #D9E1E110;
+    gap: 32px;
+}
+
+.container__userList {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 24px;
+    gap: 32px;
+}
+
+.userList__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 32px;
+}
+
+.head__search {
+    width: 50%;
+}
+
+.head__buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.userList__main {
+    display: flex;
+    flex-direction: column;
+}
+
+.userList__pages {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 12px;
+}
