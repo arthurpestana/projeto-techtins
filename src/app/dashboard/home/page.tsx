@@ -18,7 +18,7 @@ export default function Home() {
     <div className='container__main'>
       <div className='main__header'>
         <div className='header__info'>
-          <h1>Sistema de Gerenciamento de Usuários</h1>
+          <h1>Gerenciamento de Usuários</h1>
           <p>O Sistema de Gerenciamento de Usuários da SneakerShop é uma plataforma simples e intuitiva desenvolvida para otimizar o controle e a administração de administradores, clientes e funcionários da loja. Com ele, a SneakerShop pode gerenciar todas as interações dos usuários em um único lugar, proporcionando uma visão clara do comportamento dos clientes e facilitando a operação de gestão interna.</p>
         </div>
         <div className='header__image'>
@@ -35,12 +35,12 @@ export default function Home() {
           <h2>Atividades Recentes</h2>
         </div>
         <div className='recent__content'>
-          <UserItem adminName='Administrador' adminMail='E-mail Administrador' userName='Usuário Cadastrado' date='Data de Cadastro' placeholder={true}/>
-          <UserItem Icon={UserIcon} adminName='Soares Souza' adminMail='soaressouza@gmail.com' userName='João Barreira' date='11/09/2024' placeholder={false}/>
-          <UserItem Icon={UserIcon} adminName='Soares Souza' adminMail='soaressouza@gmail.com' userName='João Barreira' date='11/09/2024' placeholder={false}/>
-          <UserItem Icon={UserIcon} adminName='Soares Souza' adminMail='soaressouza@gmail.com' userName='João Barreira' date='11/09/2024' placeholder={false}/>
-          <UserItem Icon={UserIcon} adminName='Soares Souza' adminMail='soaressouza@gmail.com' userName='João Barreira' date='11/09/2024' placeholder={false}/>
-          <UserItem Icon={UserIcon} adminName='Soares Souza' adminMail='soaressouza@gmail.com' userName='João Barreira' date='11/09/2024' placeholder={false}/>
+          <UserItem adminName='Administrador' adminMail='E-mail Administrador' userName='Usuário Cadastrado' date='Data de Cadastro' placeholder/>
+          <UserItem Icon={UserIcon} adminName='Soares Souza' adminMail='soaressouza@gmail.com' userName='João Barreira' date='11/09/2024'/>
+          <UserItem Icon={UserIcon} adminName='Soares Souza' adminMail='soaressouza@gmail.com' userName='João Barreira' date='11/09/2024'/>
+          <UserItem Icon={UserIcon} adminName='Soares Souza' adminMail='soaressouza@gmail.com' userName='João Barreira' date='11/09/2024'/>
+          <UserItem Icon={UserIcon} adminName='Soares Souza' adminMail='soaressouza@gmail.com' userName='João Barreira' date='11/09/2024'/>
+          <UserItem Icon={UserIcon} adminName='Soares Souza' adminMail='soaressouza@gmail.com' userName='João Barreira' date='11/09/2024'/>
         </div>
       </div>
     </div>

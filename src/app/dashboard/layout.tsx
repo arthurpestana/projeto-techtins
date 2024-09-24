@@ -1,12 +1,12 @@
 'use client'
 
-import { Children, useEffect } from "react";
+import { useEffect } from "react";
 import { redirect } from 'next/navigation';
 
 import Header from "@/components/Header";
 import SideBar from "@/components/SideBar";
 
-export default function DashboardLayout({ children  }) {
+export default function DashboardLayout({ children }: {children: React.ReactNode}) {
     useEffect(() => {
       // Verifica se o token está presente no localStorage (simulação de autenticação)
       const token = localStorage.getItem('token');

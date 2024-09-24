@@ -2,12 +2,12 @@
 
 import { FormEvent, useState } from 'react';
 import Image from 'next/image';
-import { redirect, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import './login.css';
 import '../../globals.css';
 
-import InputForm from '../../../components/InputForm'
+import InputForm from '../../../components/Input'
 import Button from '../../../components/Button'
 
 export default function LoginPage() {
