@@ -6,6 +6,7 @@
     background-color: #D9E1E110;
     padding: 32px;
     display: flex;
+    flex: 1;
     align-items: start;
     flex-direction: column;
     border-right: 2px solid #A2A1A820;

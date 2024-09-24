@@ -1,0 +1,72 @@
+.container__input {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    position: relative;
+    font-family: "Satoshi-Variable";
+}
+
+.input__icon {
+    position: absolute;
+    left: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-image__icon {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #A2A1A820;
+    border-radius: 16px;
+    padding: 32px;
+}
+
+.input-image__icon:focus {
+    outline: 2px solid #7152F3;
+}
+
+.input-image {
+    display: none;
+}
+
+.input-box {
+    width: 100%;
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid #7152F3;
+}
+
+.input-checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 12px;
+}
+
+.input-search {
+    width: 100%;
+    padding: 12px 40px;
+    border-radius: 16px;
+    font-size: 18px;
+    border: 1px solid #A2A1A880;
+}
+
+.input-form {
+    width: 100%;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 18px;
+    border: 1px solid #A2A1A850;
+}
+
+.input-form:focus {
+    outline: 2px solid #7152F3;
+    color: #7152F3;
+}
+
+.input-form:focus::placeholder {
+    color: #7152F3;
+}

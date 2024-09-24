@@ -3,7 +3,7 @@ import React from "react";
 import './style.css'
 
 import MenuItem from './MenuItem'
-import UserIcon from '../../../public/icons/users-icon.svg'
+import UserIcon from '@/../public/icons/users-icon.svg'
 import SettingIcon from '../../../public/icons/setting-icon.svg'
 import HomeIcon from '../../../public/icons/home-icon.svg'
 

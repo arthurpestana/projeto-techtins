@@ -1,0 +1,61 @@
+.container__button {
+    display: flex;
+    align-items: center;
+}
+
+.button-page {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    color: #16151C;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-page--active {
+    color: #7152F3;
+    border: 1px solid #7152F3
+}
+
+.button-box {
+    width: 100%;
+    border-radius: 12px;
+    background-color: #7152F3;
+    padding: 12px 24px;
+}
+
+.button-box > span {
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.button-box--outline {
+    background-color: transparent;
+    border: 1px solid #A2A1A8;
+}
+
+.button-box--outline span {
+    color: #16151C;
+}
+
+.button-mini {
+    justify-content: flex-start;
+}
+
+.button-mini span {
+    color: #A2A1A8;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.button__label {
+    font-family: "Satoshi-Variable";
+    font-weight: 500;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
