@@ -4,7 +4,7 @@ import './style.css'
 
 interface ButtonProps {
     text: string;
-    onClick?: () => void;
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
     type?: 'button' | 'submit' | 'reset'
     Icon?: React.ElementType;
     outline?: boolean

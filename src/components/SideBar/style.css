@@ -21,6 +21,11 @@
     padding: 16px 16px 16px 24px;
     border-radius: 4px 16px 16px 4px;
     cursor: pointer;
+    transition: ease 0.2s;
+}
+
+.container__item:hover{
+    border-left: 4px solid #7152F3;
 }
 
 .item--active {
@@ -33,6 +38,7 @@
     font-weight: 500;
     font-size: 16px;
     color: #A2A1A8;
+    transition: ease 0.2s;
 }
 
 .text--active {

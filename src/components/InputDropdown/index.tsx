@@ -18,7 +18,7 @@ const InputDropdown: React.FC<InputDropdownProps> = ({ options, label, placehold
 
   useEffect(() => {
     setHighlightedOption(placeholder);
-  }, [options]);
+  }, [placeholder]);
 
   const toggleDropdown = () => {
     setIsOpen(prev => !prev);
