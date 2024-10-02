@@ -62,7 +62,7 @@ Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o 
   - [x] Home
   - [x] Lista de Usuários
   - [x] Cadastro de Usuários
-- [ ] **Configurar todas as funcionalidades das páginas**
+- [x] **Configurar funcionalidades**
 - [ ] **Integrar com API RESTful**
 - [ ] **Gerenciar estados**
 
