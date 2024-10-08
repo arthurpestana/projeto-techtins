@@ -4,15 +4,17 @@ import React, { useEffect, useState } from 'react';
 import './style.css';
 
 import ChevronIcon from '@/../public/icons/chevron-icon.svg'
+import { on } from 'events';
 
 type InputDropdownProps = {
   options: Array<string>;
   label?: string;
   placeholder: string;
   selected?: string;
+  onChange?: (value: string) => void;
 };
 
-const InputDropdown: React.FC<InputDropdownProps> = ({ options, label, placeholder, selected }) => {
+const InputDropdown: React.FC<InputDropdownProps> = ({ options, label, placeholder, selected, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string | null | undefined>(null);
   const [highlightedOption, setHighlightedOption] = useState<string | null>(null);
@@ -36,14 +38,15 @@ const InputDropdown: React.FC<InputDropdownProps> = ({ options, label, placehold
     setSelectedOption(option);
     setIsOpen(false);
     setHighlightedOption(option);
+    onChange && onChange(option);
   };
 
   return (
     <div className='container__dropdown'>
       {label && <label className='dropdown__label' htmlFor='dropdown'>{label}</label>}
       <div className={`dropdown__select ${isOpen ? 'open' : ''}`} onClick={toggleDropdown}>
-        <div className={`dropdown__selected ${highlightedOption === placeholder ? 'placeholder-item--highlighted' : ''}`}>
-          {selectedOption?.charAt(0).toUpperCase()+selectedOption?.slice(1) || placeholder}
+        <div className={`dropdown__selected ${highlightedOption === placeholder && 'placeholder-item--highlighted'}`}>
+          {selectedOption?.charAt(0).toUpperCase()+selectedOption?.slice(1) || <span style={{color: '#A2A1A8', fontSize: '18px'}}>{placeholder}</span>}
         </div>
         <div className="dropdown__arrow">
             <ChevronIcon width="25" height="25" stroke="#16151C"/>

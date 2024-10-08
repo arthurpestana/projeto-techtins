@@ -21,11 +21,10 @@ const CadUser = () => {
     const[nome, setNome] = useState<string | undefined>('')
     const[sobrenome, setSobrenome] = useState<string | undefined>('')
     const[email, setEmail] = useState<string | undefined>('')
-    const[telefone, setTelefone] = useState<string | undefined>('')
+    const[status, setStatus] = useState<string | undefined>('')
     const[endereco, setEndereco] = useState<string | undefined>('')
     const[funcao, setFuncao] = useState<string | undefined>('')
     const[genero, setGenero] = useState<string | undefined>('')
-    const[imagem, setImagem] = useState<string | undefined>('')
 
 
     async function getUserId() {
@@ -36,7 +35,7 @@ const CadUser = () => {
                 setNome(response.data.nome)
                 setSobrenome(response.data.sobrenome)
                 setEmail(response.data.email)
-                setTelefone(response.data.telefone)
+                setStatus(response.data.status)
                 setEndereco(response.data.endereco)
                 setFuncao(response.data.funcao)
                 setGenero(response.data.genero)
@@ -44,6 +43,42 @@ const CadUser = () => {
             .catch((error) => {
                 console.log(error)
             })
+        }
+    }
+
+    async function handleSaveUser() {
+        if (userId) {
+            await axios.put(`http://localhost:8080/users/${userId}`, {
+                nome: nome,
+                sobrenome: sobrenome,
+                email: email,
+                status: status,
+                endereco: endereco,
+                funcao: funcao,
+                genero: genero
+            })
+            .then((response) => {
+                console.log("Usuário atualizado com sucesso:", response.data);
+            })
+            .catch((error) => {
+                console.error("Erro ao atualizar o usuário:", error);
+            });
+        } else {
+            await axios.post(`http://localhost:8080/users`, {
+                nome: nome,
+                sobrenome: sobrenome,
+                email: email,
+                status: status,
+                endereco: endereco,
+                funcao: funcao,
+                genero: genero
+            })
+            .then((response) => {
+                console.log("Usuário cadastrado com sucesso:", response.data);
+            })
+            .catch((error) => {
+                console.error("Erro ao cadastrar o usuário:", error);
+            });
         }
     }
 
@@ -72,19 +107,19 @@ const CadUser = () => {
                     </div>
                     <div className='input__text'>
                         <InputForm form type='email' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)}/>
-                        <InputForm form type='tel' placeholder='Telefone' value={telefone} onChange={(e) => setTelefone(e.target.value)}/>
+                        <InputDropdown options={["Ativo", "Inativo"]} placeholder='Status' selected={status} onChange={(value: string) => setStatus(value)}/>
                     </div>
                     <div className='input__text'>
                         <InputForm form type='text' placeholder='Endereço' value={endereco} onChange={(e) => setEndereco(e.target.value)}/>
                     </div>
                     <div className='input__text'>
-                        <InputDropdown options={["admin", "cliente", "funcionario"]} placeholder='Função' selected={funcao}/>
-                        <InputDropdown options={['masculino', 'feminino', 'outro']} placeholder='Gênero' selected={genero}/>
+                        <InputDropdown options={["admin", "cliente", "funcionario"]} placeholder='Função' selected={funcao} onChange={(value: string) => setFuncao(value)}/>
+                        <InputDropdown options={['masculino', 'feminino', 'outro']} placeholder='Gênero' selected={genero} onChange={(value: string) => setGenero(value)}/>
                     </div>
                 </div>
                 <div className='form__buttons'>
-                    <Button type='button' text='Salvar' onClick={() => null}/>
-                    <Button type='button' text='Cancelar' onClick={() => null} outline/>
+                    <Button type='button' text='Salvar' onClick={handleSaveUser}/>
+                    <Button type='button' text='Cancelar' onClick={() => (router.push("/dashboard/users"))} outline/>
                 </div>
             </form>
         </div>

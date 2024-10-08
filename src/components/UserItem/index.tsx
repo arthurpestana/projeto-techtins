@@ -37,13 +37,15 @@ const UserItem: React.FC<UserItemProps> = ({Icon, userName, adminName, date, pla
     const[data, setData] = useState<string | undefined>(date)
 
     async function delUser() {
-        await axios.delete(`http://localhost:8080/users/${id}`)
+        await axios.put(`http://localhost:8080/users/${id}`, {
+            status: "Inativo"
+        })
         .then((response) => {
-            console.log(response)
+            console.log("Usuário desativado com sucesso:", response.data);
         })
         .catch((error) => {
-            console.log(error)
-        })
+            console.error("Erro ao desativar o usuário:", error);
+        });
     }
 
     const editUser = () => {
