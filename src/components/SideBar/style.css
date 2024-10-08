@@ -19,12 +19,13 @@
     gap: 12px;
     width: 100%;
     padding: 16px 16px 16px 24px;
-    border-radius: 4px 16px 16px 4px;
+    border-radius: 0px 16px 16px 0px;
     cursor: pointer;
-    transition: ease 0.2s;
+    transition: ease-in-out 0.2s;
 }
 
 .container__item:hover{
+    border-radius: 0px;
     border-left: 4px solid #7152F3;
 }
 

@@ -23,6 +23,12 @@
     background-color: #A2A1A820;
     border-radius: 16px;
     padding: 32px;
+    cursor: pointer;
+    transition: ease-in-out .2s;
+}
+
+.input-image__icon:hover {
+    background-color: #A2A1A840;
 }
 
 .input-image__icon:focus {
@@ -31,6 +37,15 @@
 
 .input-image {
     display: none;
+    cursor: pointer;
+}
+
+.input__label {
+    cursor: pointer;
+}
+
+.container__input input:focus {
+    outline: 1px solid #3517B4;
 }
 
 .input-box {
@@ -63,10 +78,10 @@
 }
 
 .input-form:focus {
-    outline: 2px solid #7152F3;
-    color: #7152F3;
+    outline: 1px solid #3517B4;
+    color: #3517B4;
 }
 
 .input-form:focus::placeholder {
-    color: #7152F3;
+    color: #3517B4;
 }

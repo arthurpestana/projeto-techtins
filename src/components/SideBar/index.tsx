@@ -27,7 +27,7 @@ const SideBar = () => {
         <div className="container__sidebar">
             <MenuItem Icon={HomeIcon} text={"Home"} active={activePath.startsWith("/dashboard/home")} onClick={handleOnClick} href={"/dashboard/home"}/>
             <MenuItem Icon={UserIcon} text={"Usuários"} active={activePath.startsWith("/dashboard/users")} onClick={handleOnClick} href={"/dashboard/users"}/>
-            <MenuItem Icon={SettingIcon} text={"Configurações"} active={activePath.startsWith("/dashboard/settings")} onClick={handleOnClick} href={"/dashboard/settings"}/>
+            {/*<MenuItem Icon={SettingIcon} text={"Configurações"} active={activePath.startsWith("/dashboard/settings")} onClick={handleOnClick} href={"/dashboard/settings"}/>*/}
         </div>
     )
 }

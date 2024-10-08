@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from 'react';
 import Image from 'next/image';
+import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
 import './login.css';
@@ -15,18 +16,25 @@ export default function LoginPage() {
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [error, setError] = useState<string | null>(null);
 
     const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setError(null);
+        console.log(email, password);
 
-        // Simula uma requisição de login (substitua isso por uma chamada real à API)
-        if (email === 'admin@admin.com' && password === 'admin') {
-            // Salva um token no localStorage (simulação de autenticação)
-            localStorage.setItem('token', 'fake-token');
+        try {
+            const response = await axios.post<{ token: string }>('http://localhost:8080/auth/login', {email, password});
+
+            // Salvando o token JWT no localStorage
+            localStorage.setItem('token', response.data.token);
+
+            // Redirecionar para a página protegida (exemplo: dashboard)
             router.push('/dashboard/home');
         } 
-        else {
-            alert('Credenciais inválidas');
+        catch (err) {
+            setError('Login falhou. Verifique seu email ou senha.');
+            console.log(err)
         }
     }
 
@@ -55,6 +63,7 @@ export default function LoginPage() {
                     </div>
                     <div className='form__button'><Button type='submit' text='Login'/></div>
                 </form>
+                {error && <p>{error}</p>}
             </div>
         </div>
     );

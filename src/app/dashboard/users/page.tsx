@@ -1,7 +1,8 @@
 'use client'
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from 'next/navigation'
+import axios from "axios";
 
 import './style.css'
 
@@ -19,89 +20,69 @@ export default function UserPage() {
     const router = useRouter();
 
     const [pageValue, setPageValue] = useState(0)
+    const [users, setUsers] = useState<User[]>([])
+    const [searchValue, setSearchValue] = useState<string | null>('')
 
-    type UserRole = 'administrador' | 'funcionario' | 'cliente';
+    type UserRole = 'Administrador' | 'Funcionario' | 'Cliente';
 
     interface User {
-    id: number;
-    nome: string;
-    funcao: UserRole;
-    dataCadastro: Date;
-    status: boolean;
+        id: number;
+        nome: string;
+        sobrenome: string;
+        funcao: UserRole;
+        genero: string;
+        endereco: string|null;
+        fotoUrl: string|null;
+        dataCadastro: Date;
+        status: string;
     }
 
-    const usuarios: User[] = [
-    {
-        id: 1,
-        nome: 'João Silva',
-        funcao: 'administrador',
-        dataCadastro: new Date('2023-01-15'),
-        status: true,
-    },
-    {
-        id: 2,
-        nome: 'Maria Oliveira',
-        funcao: 'funcionario',
-        dataCadastro: new Date('2022-11-22'),
-        status: true,
-    },
-    {
-        id: 3,
-        nome: 'Carlos Pereira',
-        funcao: 'cliente',
-        dataCadastro: new Date('2023-05-30'),
-        status: false,
-    },
-    {
-        id: 4,
-        nome: 'Ana Souza',
-        funcao: 'funcionario',
-        dataCadastro: new Date('2022-12-10'),
-        status: true,
-    },
-    {
-        id: 5,
-        nome: 'Paulo Lima',
-        funcao: 'cliente',
-        dataCadastro: new Date('2023-07-05'),
-        status: true,
-    },
-    {
-        id: 6,
-        nome: 'Serginho Escada',
-        funcao: 'cliente',
-        dataCadastro: new Date('2023-02-04'),
-        status: false,
-    },
-    ];
+    async function getUsers() {
+        try {
+          const response = await axios.get('http://localhost:8080/users');
+          setUsers(response.data)
+          console.log(response.data)
+        } 
+        catch (err) {
+          console.log(err)
+        }
+    }
 
+    useEffect(() => {
+        getUsers()
+    }, [])
 
     return (
         <div className="container__main">
             <div className="container__userList">
                 <div className="userList__head">
                     <div className="head__search">
-                        <Input type="text" placeholder="Pesquisar" value="" Icon={SearchIcon} search/>
+                        <Input type="text" placeholder="Pesquisar" Icon={SearchIcon} search onChange={(e) => {setSearchValue(e.target.value)}}/>
                     </div>
                     <div className="head__buttons">
                         <Button text="Adicionar Usuário" type="button" Icon={AddSquareIcon} onClick={() => {
                             router.push('/dashboard/users/cadUser');
                         }}/>
-                        <Button text="Filtro" type="button" Icon={FilterIcon} outline/>
+                        {/*<Button text="Filtro" type="button" Icon={FilterIcon} outline/>*/}
                     </div>
                 </div>
                 <div className="userList__main">
                     <UserItem userName='Usuário' id={"ID Usuário"} userFunc={"Função"} date='Data de Cadastro' userStatus={"Status"} placeholder edit={"Opções"}/>
-                    {usuarios.slice(pageValue*5, pageValue*5+5).map((item) => {
-                        return (<UserItem key={item.id} id={item.id} Icon={UserIcon} userName={item.nome} userFunc={item.funcao} date={item.dataCadastro.toLocaleDateString()} userStatus={item.status} edit/>)
+                    {searchValue?users.filter((item) => (item.nome.toLowerCase()+item.sobrenome.toLowerCase()).includes(searchValue.toLowerCase())).slice(pageValue*5, pageValue*5+5).map((item) => {
+                        return (<UserItem key={item.id} id={item.id} Icon={UserIcon} userName={item.nome+" "+item.sobrenome} userFunc={item.funcao} date={item.dataCadastro.toString()} userStatus={item.status} edit/>)
+                    }):
+                    users.slice(pageValue*5, pageValue*5+5).map((item) => {
+                        return (<UserItem key={item.id} id={item.id} Icon={UserIcon} userName={item.nome+" "+item.sobrenome} userFunc={item.funcao} date={item.dataCadastro.toString()} userStatus={item.status} edit/>)
                     })}
                 </div>
                 <div className="userList__pages">
-                    <ChevronIcon width={24} heigth={24} style={{cursor: 'pointer', transform: "rotate(90deg)"}}/>
-                    {Array.from({ length: Math.ceil(usuarios.length/5)}, (_, index) => 
-                        index==pageValue?(<Button key={index} text={(index+1).toString()} type="button" outline page active/>):(<Button key={index} text={(index+1).toString()} type="button" outline page/>)
+                    {/*<ChevronIcon width={24} heigth={24} style={{cursor: 'pointer', transform: "rotate(90deg)"}}/>*/}
+                    {searchValue?Array.from({ length: Math.ceil(users.filter((item) => (item.nome.toLowerCase()+item.sobrenome.toLowerCase()).includes(searchValue.toLowerCase())).length/5)}, (item, index) =>
+                        index==pageValue?(<Button key={index} text={(index+1).toString()} type="button" outline page active onClick={() => {setPageValue(index)}}/>):(<Button key={index} text={(index+1).toString()} type="button" onClick={() => {setPageValue(index)}} outline page/>)    
+                    ):Array.from({ length: Math.ceil(users.length/5)}, (item, index) => 
+                        index==pageValue?(<Button key={index} text={(index+1).toString()} type="button" outline page active onClick={() => {setPageValue(index)}}/>):(<Button key={index} text={(index+1).toString()} type="button" onClick={() => {setPageValue(index)}} outline page/>)
                     )}
-                    <ChevronIcon width={24} heigth={24} style={{cursor: 'pointer', transform: "rotate(-90deg)"}}/>
+                    {/*<ChevronIcon width={24} heigth={24} style={{cursor: 'pointer', transform: "rotate(-90deg)"}}/>*/}
                 </div>
             </div>
         </div>

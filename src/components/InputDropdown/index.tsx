@@ -9,16 +9,24 @@ type InputDropdownProps = {
   options: Array<string>;
   label?: string;
   placeholder: string;
+  selected?: string;
 };
 
-const InputDropdown: React.FC<InputDropdownProps> = ({ options, label, placeholder }) => {
+const InputDropdown: React.FC<InputDropdownProps> = ({ options, label, placeholder, selected }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [selectedOption, setSelectedOption] = useState<string | null | undefined>(null);
   const [highlightedOption, setHighlightedOption] = useState<string | null>(null);
 
   useEffect(() => {
-    setHighlightedOption(placeholder);
-  }, [placeholder]);
+    if (selected!=null) {
+      setSelectedOption(selected);
+      setHighlightedOption(selected);
+      console.log(highlightedOption)
+    }
+    else {
+      setHighlightedOption(placeholder);
+    }
+  }, [selected]);
 
   const toggleDropdown = () => {
     setIsOpen(prev => !prev);

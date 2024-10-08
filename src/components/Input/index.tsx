@@ -28,7 +28,7 @@ const Input: React.FC<InputProps> = ({ type, placeholder, value, onChange, label
                 value={value}
                 onChange={onChange}
             />
-            {label&&<label htmlFor="input">{label}</label>}
+            {label&&<label htmlFor="input" className="input__label">{label}</label>}
         </div>
     )
 }

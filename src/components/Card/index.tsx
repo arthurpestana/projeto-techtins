@@ -15,7 +15,7 @@ const Card: React.FC<CardProps> = ({Icon, title, value, date, userIcon}) => {
         <div className="container__card">
             <div className="card__header">
                 {Icon&&<span className="card__icon">
-                    <Icon stroke="#7152F3" width="24" height="24" stroke-width="1.5" />
+                    <Icon stroke="#7152F3" width="24" height="24" strokeWidth="1.5"/>
                 </span>}
                 <p className="header__text">{title}</p>
             </div>

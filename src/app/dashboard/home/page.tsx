@@ -1,7 +1,9 @@
 'use client'
 
-import React from 'react'
+import React, { ReactElement } from 'react'
 import Image from 'next/image'
+import {useEffect, useState} from 'react'
+import axios from 'axios'
 
 import Card from '@/components/Card/index'
 import UserItem from '@/components/UserItem'
@@ -14,6 +16,70 @@ import UserDelIcon from '@/../public/icons/user-minus-icon.svg'
 import './style.css'
 
 export default function Home() {
+  interface UserHistory {
+    adminName: string;
+    adminEmail: string;
+    createdUserName: string;
+    createdDate: string;
+    actionType: string;
+    createdUserEmail: string;
+  }
+
+  interface UserQuantity {
+    total: number;
+    active: number;
+    inactive: number;
+    data: Date;
+  }
+
+  interface User {
+    id: number;
+    name: string;
+    role: string;
+    createdAt: Date;
+    status: string;
+  }
+
+  const [usersHistory, setUsersHistory] = useState<UserHistory | []>([])
+  const [quantityUsers, setQuantityUsers] = useState<UserQuantity | null>(null)
+
+  async function getHistoryUsers() {
+    try {
+      const response = await axios.get('http://localhost:8080/users/history');
+      setUsersHistory(response.data)
+    } 
+    catch (err) {
+      console.log(err)
+    }
+  }
+
+  async function getAllUsers() {
+    try {
+      const response = await axios.get('http://localhost:8080/users');
+      const currentDate = new Date();
+      const formattedDate = `${currentDate.getDate().toString().padStart(2, '0')}/${(currentDate.getMonth() + 1).toString().padStart(2, "0")}/${currentDate.getFullYear()}`;
+
+      const quantUsers = {
+        total: await response.data.length,
+        active: await response.data.filter((user: User) => user.status == "Ativo").length,
+        inactive: await response.data.filter((user: User) => user.status == "Inativo").length,
+        data: formattedDate
+      }
+      setQuantityUsers(quantUsers)
+    } 
+    catch (err) {
+      console.log(err)
+    }
+  }
+  
+  
+
+  useEffect(() => {
+    getHistoryUsers()
+    getAllUsers()
+  }, [])
+
+
   return(
     <div className='container__main'>
       <div className='main__header'>
@@ -26,21 +92,20 @@ export default function Home() {
         </div>
       </div>
       <div className='main__dashboard'>
-        <Card Icon={UsersIcon} userIcon title={"Total de Usuários"} value={50000} date={"10 de Setembro de 2024"}/>
-        <Card Icon={UserAddIcon} title={"Usuários Ativos"} value={48587} date={"10 de Setembro de 2024"}/>
-        <Card Icon={UserDelIcon} title={"Usuários Inativos"} value={1413} date={"10 de Setembro de 2024"}/>
+        <Card Icon={UsersIcon} userIcon title={"Total de Usuários"} value={quantityUsers?.total} date={quantityUsers?.data.toString()}/>
+        <Card Icon={UserAddIcon} title={"Usuários Ativos"} value={quantityUsers?.active} date={quantityUsers?.data.toString()}/>
+        <Card Icon={UserDelIcon} title={"Usuários Inativos"} value={quantityUsers?.inactive} date={quantityUsers?.data.toString()}/>
       </div>
       <div className='main__recent-activities'>
         <div className='recent__title'>
           <h2>Atividades Recentes</h2>
         </div>
         <div className='recent__content'>
-          <UserItem adminName='Administrador' adminMail='E-mail Administrador' userName='Usuário Cadastrado' date='Data de Cadastro' placeholder/>
-          <UserItem Icon={UserIcon} adminName='Soares Souza' adminMail='soaressouza@gmail.com' userName='João Barreira' date='11/09/2024'/>
-          <UserItem Icon={UserIcon} adminName='Soares Souza' adminMail='soaressouza@gmail.com' userName='João Barreira' date='11/09/2024'/>
-          <UserItem Icon={UserIcon} adminName='Soares Souza' adminMail='soaressouza@gmail.com' userName='João Barreira' date='11/09/2024'/>
-          <UserItem Icon={UserIcon} adminName='Soares Souza' adminMail='soaressouza@gmail.com' userName='João Barreira' date='11/09/2024'/>
-          <UserItem Icon={UserIcon} adminName='Soares Souza' adminMail='soaressouza@gmail.com' userName='João Barreira' date='11/09/2024'/>
+          {console.log(usersHistory)}
+          <UserItem adminName='Administrador' userEmail='E-mail do Usuário' userName='Usuário' date='Data' funcHistory="Operação" placeholder/>
+          {usersHistory.slice(-5).reverse().map((user: UserHistory, key: number) => {
+            return(<UserItem key={key} Icon={UserIcon} adminName={user.adminName} userEmail={user.createdUserEmail} userName={user.createdUserName} date={user.createdDate} funcHistory={user.actionType}/>)
+          })}
         </div>
       </div>
     </div>

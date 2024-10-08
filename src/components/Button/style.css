@@ -3,6 +3,24 @@
     align-items: center;
 }
 
+.container__button button {
+    transition: ease-in-out 0.2s;
+}
+
+.button-onlyIcon {
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.button-onlyIcon:hover {
+    outline: 1px solid #3517B4;
+    transform: scale(1.1);
+}
+
 .button-page {
     width: 40px;
     height: 40px;
@@ -12,6 +30,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+}
+
+.button-page:hover {
+    color: #3517B4;
+    transform: scale(1.1);
 }
 
 .button-page--active {
@@ -24,6 +48,16 @@
     border-radius: 12px;
     background-color: #7152F3;
     padding: 12px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.button-box:hover {
+    background-color: #3517B4;
+    cursor: pointer;
+    transform: scale(1.03);
 }
 
 .button-box > span {
@@ -58,4 +92,5 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    text-align: center;
 }
