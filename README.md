@@ -40,6 +40,8 @@ Para mais detalhes, acesse o [projeto no Figma](https://www.figma.com/design/SJu
 
 ```npm install @svgr/webpack --save-dev```
 
+npm install jwt-decode
+
 ## Execução
 
 Primeiro, execute o servidor de desenvolvimento:

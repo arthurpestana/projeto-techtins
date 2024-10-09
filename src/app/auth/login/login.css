@@ -5,7 +5,8 @@
   color: #16151C;
 }
 
-.container-login {
+.container_login {
+  position: relative;
   display: flex;
   align-items: center;
   height: 100dvh;
@@ -35,6 +36,7 @@
   gap: 24px;
   padding: 32px;
   border-radius: 12px;
+  position: relative;
 }
 
 .login__header {
@@ -90,4 +92,58 @@
   margin-top: 24px;
 }
 
+.error__box {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -30%;
+  background-color: #F45B69;
+  padding: 20px;
+  width: 90%;
+  border-radius: 16px;
+  animation: slideDown 0.5s ease-out forwards;
+}
 
+@keyframes slideDown {
+  0% {
+    top: -50%; /* Fora da tela no topo */
+  }
+  100% {
+    top: -15%; /* Posição final no topo 5% */
+  }
+}
+
+.error__box > * {
+  color: white;
+}
+
+.close_error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0px 15px 0px 10px;
+  padding: 5px;
+}
+
+.close_error:hover {
+  transform: scale(1.1);
+}
+
+.close_error > span {
+  width: 15px;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  border-radius: 10px;
+  transition: ease-in-out 0.2s;
+}
+
+.close_error > span:first-child {
+  transform: rotate(45deg);
+}
+
+.close_error > span:nth-child(2) {
+  transform: rotate(-45deg);
+}

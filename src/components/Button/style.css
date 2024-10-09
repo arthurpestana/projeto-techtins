@@ -85,6 +85,10 @@
     justify-content: flex-start;
 }
 
+.button-mini:hover {
+    transform: scale(1.05);
+}
+
 .button-mini span {
     color: #A2A1A8;
     font-weight: 400;

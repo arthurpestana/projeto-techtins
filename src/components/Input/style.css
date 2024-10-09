@@ -35,6 +35,10 @@
     outline: 2px solid #7152F3;
 }
 
+.input-image__icon--active {
+    outline: 2px solid #3517B4;
+}
+
 .input-image {
     display: none;
     cursor: pointer;

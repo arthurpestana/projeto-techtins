@@ -15,31 +15,31 @@ import UserDelIcon from '@/../public/icons/user-minus-icon.svg'
 
 import './style.css'
 
+interface UserHistory {
+  adminName: string;
+  adminEmail: string;
+  createdUserName: string;
+  createdDate: string;
+  actionType: string;
+  createdUserEmail: string;
+}
+
+interface UserQuantity {
+  total: number;
+  active: number;
+  inactive: number;
+  data: Date;
+}
+
+interface User {
+  id: number;
+  name: string;
+  role: string;
+  createdAt: Date;
+  status: string;
+}
+
 export default function Home() {
-  interface UserHistory {
-    adminName: string;
-    adminEmail: string;
-    createdUserName: string;
-    createdDate: string;
-    actionType: string;
-    createdUserEmail: string;
-  }
-
-  interface UserQuantity {
-    total: number;
-    active: number;
-    inactive: number;
-    data: Date;
-  }
-
-  interface User {
-    id: number;
-    name: string;
-    role: string;
-    createdAt: Date;
-    status: string;
-  }
-
   const [usersHistory, setUsersHistory] = useState<UserHistory | []>([])
   const [quantityUsers, setQuantityUsers] = useState<UserQuantity | null>(null)
 

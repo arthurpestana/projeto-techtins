@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 
 import "./style.css"
 
@@ -15,9 +16,11 @@ interface InputProps {
 }
 
 const Input: React.FC<InputProps> = ({ type, placeholder, value, onChange, label, Icon, search, form, image}) => {
+    const [filePath, setFilePath] = useState<string | null>(null);
+
     return (
         <div className="container__input">
-            {Icon&&<label htmlFor="input" className={`${image?"input-image__icon":"input__icon"}`}><Icon width={image?"96":"24"} height={image?"96":"24"} stroke="#A2A1A8"/></label>}
+            {Icon&&<label htmlFor="input" className={`${image?"input-image__icon":"input__icon"} ${filePath?"input-image__icon--active":""}`}><Icon width={image?"96":"24"} height={image?"96":"24"} stroke="#A2A1A8"/></label>}
             <input
                 id="input"
                 name="input"
@@ -26,7 +29,8 @@ const Input: React.FC<InputProps> = ({ type, placeholder, value, onChange, label
                 type={type}
                 placeholder={placeholder}
                 value={value}
-                onChange={onChange}
+                onChange={image?(e: React.ChangeEvent<HTMLInputElement>)=>{setFilePath(e.target.value); console.log(e.target.value)}:onChange}
+                
             />
             {label&&<label htmlFor="input" className="input__label">{label}</label>}
         </div>

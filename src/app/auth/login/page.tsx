@@ -25,7 +25,7 @@ export default function LoginPage() {
 
         try {
             const response = await axios.post<{ token: string }>('http://localhost:8080/auth/login', {email, password});
-
+            console.log(response)
             // Salvando o token JWT no localStorage
             localStorage.setItem('token', response.data.token);
 
@@ -33,13 +33,13 @@ export default function LoginPage() {
             router.push('/dashboard/home');
         } 
         catch (err) {
-            setError('Login falhou. Verifique seu email ou senha.');
+            setError('Login falhou. Verifique seu email ou senha!');
             console.log(err)
         }
     }
 
     return (
-        <div className='container-login'>
+        <div className='container_login'>
             <div className='login__image'>
                 <Image src={'/images/system-image.png'} alt='Sistema de Gerenciamento de Usuários' layout={"intrinsic"} width={650} height={100}/>
             </div>
@@ -63,7 +63,13 @@ export default function LoginPage() {
                     </div>
                     <div className='form__button'><Button type='submit' text='Login'/></div>
                 </form>
-                {error && <p>{error}</p>}
+                {error && <div className='error__box'>
+                    <button className="close_error" onClick={() => {setError(null)}}>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <p>{error}</p>
+                </div>}
             </div>
         </div>
     );

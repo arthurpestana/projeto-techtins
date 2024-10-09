@@ -7,7 +7,7 @@ import './style.css'
 
 import UserIcon from '@/../public/icons/user-icon.svg'
 import ChevronIcon from '@/../public/icons/chevron-icon.svg'
-import BellIcon from '@/../public/icons/bell-icon.svg'
+//import BellIcon from '@/../public/icons/bell-icon.svg'
 import LogoutIcon from '@/../public/icons/arrow-right-start-on-rectangle.svg'
 
 import Button from "../Button";

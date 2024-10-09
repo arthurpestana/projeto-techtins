@@ -24,12 +24,13 @@ interface UserItemProps {
     userFunc?: string;
     userStatus?: string | boolean;
     funcHistory?: string;
+    handleClick?: () => void;
 }
 
-const UserItem: React.FC<UserItemProps> = ({Icon, userName, adminName, date, placeholder, id, edit, userFunc, userStatus, userEmail, funcHistory}) => {
+const UserItem: React.FC<UserItemProps> = ({Icon, userName, adminName, date, placeholder, id, edit, userFunc, userStatus, userEmail, funcHistory, handleClick}) => {
 
     const router = useRouter();
-
+    
     const[onViewUser, setOnViewUser] = useState(false)
     const[name, setName] = useState<string | undefined>(userName)
     const[func, setFunc] = useState<string | undefined>(userFunc)
@@ -37,15 +38,21 @@ const UserItem: React.FC<UserItemProps> = ({Icon, userName, adminName, date, pla
     const[data, setData] = useState<string | undefined>(date)
 
     async function delUser() {
-        await axios.put(`http://localhost:8080/users/${id}`, {
-            status: "Inativo"
+        const token = localStorage.getItem('token');
+        await axios.delete(`http://localhost:8080/users/${id}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            }
         })
         .then((response) => {
-            console.log("Usuário desativado com sucesso:", response.data);
+            console.log("Usuário deletado com sucesso", response);
         })
         .catch((error) => {
-            console.error("Erro ao desativar o usuário:", error);
+            console.error("Erro ao deletar o usuário:", error);
         });
+       if(handleClick) {
+            handleClick()
+       }
     }
 
     const editUser = () => {
@@ -76,13 +83,13 @@ const UserItem: React.FC<UserItemProps> = ({Icon, userName, adminName, date, pla
         .catch((error) => {
             console.log(error)
         })
-    }   
+    }
 
     return(
         <div className={placeholder?'container__userItem userItem--placeholder':"container__userItem"}>
             <div className='item__component'>
                 {Icon&&<span className='item__icon'>
-                    <Icon stroke="#16151C" stroke-width="2" width="20" height="20"/>
+                    <Icon stroke="#16151C" strokeWidth="2" width="20" height="20"/>
                 </span>}
                 <p>{edit?name:adminName}</p>
             </div>
@@ -90,7 +97,7 @@ const UserItem: React.FC<UserItemProps> = ({Icon, userName, adminName, date, pla
                 <p>{edit?idUser:userName}</p>
             </div>
             <div className='item__component'>
-                <p>{userFunc?func.charAt(0).toUpperCase()+func.slice(1):userEmail}</p>
+                <p>{userFunc&&func?func.charAt(0).toUpperCase()+func.slice(1):userEmail}</p>
             </div>
             <div className='item__component'>
                 <p>{data}</p>

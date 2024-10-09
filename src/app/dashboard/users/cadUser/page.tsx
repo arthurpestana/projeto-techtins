@@ -14,7 +14,8 @@ import InputForm from '@/components/Input/index'
 import InputDropdown from '@/components/InputDropdown'
 
 const CadUser = () => {
-    const router  = useRouter();
+    const router = useRouter();
+    const token = localStorage.getItem('token');
     const searchParams = useSearchParams();
     const userId = searchParams.get('id')
 
@@ -47,8 +48,15 @@ const CadUser = () => {
     }
 
     async function handleSaveUser() {
+        if (!validateFields()) {
+            return
+        }
+
         if (userId) {
             await axios.put(`http://localhost:8080/users/${userId}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
                 nome: nome,
                 sobrenome: sobrenome,
                 email: email,
@@ -63,8 +71,12 @@ const CadUser = () => {
             .catch((error) => {
                 console.error("Erro ao atualizar o usuário:", error);
             });
-        } else {
+        } 
+        else {
             await axios.post(`http://localhost:8080/users`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
                 nome: nome,
                 sobrenome: sobrenome,
                 email: email,
@@ -80,6 +92,10 @@ const CadUser = () => {
                 console.error("Erro ao cadastrar o usuário:", error);
             });
         }
+    }
+
+    function validateFields() {
+        
     }
 
     useEffect(() => {

@@ -1,20 +1,35 @@
 'use client'
 
 import { useEffect } from "react";
-import { redirect } from 'next/navigation';
+import {jwtDecode} from 'jwt-decode';
+import { useRouter } from 'next/navigation';
 
 import Header from "@/components/Header";
 import SideBar from "@/components/SideBar";
 
+interface JwtPayload {
+  exp: number; // Expiração do token
+}
+
 export default function DashboardLayout({ children }: {children: React.ReactNode}) {
+    const router = useRouter()
+
     useEffect(() => {
-      // Verifica se o token está presente no localStorage (simulação de autenticação)
       const token = localStorage.getItem('token');
-      if (!token) {
-        // Se não houver token, redireciona para a página de login
-        redirect('../../auth/login');
+
+      if (token) {
+        const decodedToken = jwtDecode<JwtPayload>(token);
+        console.log(decodedToken)
+        const currentTime = Math.floor(Date.now() / 1000);
+        console.log(currentTime)
+        if (decodedToken.exp < currentTime) {
+          router.push('/auth/login');
+        }
+      } 
+      else {
+        router.push('/auth/login');
       }
-    }, [])
+    }, [router])
 
     return(
       <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>

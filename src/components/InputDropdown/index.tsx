@@ -38,7 +38,7 @@ const InputDropdown: React.FC<InputDropdownProps> = ({ options, label, placehold
     setSelectedOption(option);
     setIsOpen(false);
     setHighlightedOption(option);
-    onChange && onChange(option);
+    onChange(option);
   };
 
   return (

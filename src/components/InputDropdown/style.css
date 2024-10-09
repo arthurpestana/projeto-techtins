@@ -21,11 +21,11 @@
     justify-content: space-between;
     align-items: center;
     background-color: transparent;
-    transition: border-color 0.3s;
+    transition: border-color 0.2s ease-in-out;
 }
   
 .dropdown__select:hover {
-    border-color: #7152F3;
+    border-color: #3517B4;
 }
   
 .dropdown__selected {
