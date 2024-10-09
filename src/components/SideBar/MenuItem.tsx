@@ -16,7 +16,7 @@ interface MenuProps {
 const MenuItem: React.FC<MenuProps> = ({text, active, Icon, href, onClick}) => {
     return (
         <Link onClick={() => {if(onClick) {onClick(href)}}} href={href} className={active?"container__item item--active":"container__item"}>
-            {Icon&&<Icon stroke={active?"#7152F3":"#A2A1A8"} width="24" height="24"/>}
+            {Icon&&<Icon stroke={active?"#7152F3":"#A2A1A8"} width="24px" height="24px"/>}
             <span className={active?'item__text text--active':"item__text"}>{text}</span>
         </Link>
     )

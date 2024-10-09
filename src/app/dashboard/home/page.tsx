@@ -88,7 +88,7 @@ export default function Home() {
           <p>O Sistema de Gerenciamento de Usuários da SneakerShop é uma plataforma simples e intuitiva desenvolvida para otimizar o controle e a administração de administradores, clientes e funcionários da loja. Com ele, a SneakerShop pode gerenciar todas as interações dos usuários em um único lugar, proporcionando uma visão clara do comportamento dos clientes e facilitando a operação de gestão interna.</p>
         </div>
         <div className='header__image'>
-          <Image src="/images/geometric-models.png" alt='' layout='intrinsic' width={600} height={600}/>
+          <Image src="/images/geometric-models.png" alt='' layout='fill'/>
         </div>
       </div>
       <div className='main__dashboard'>

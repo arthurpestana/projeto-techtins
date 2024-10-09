@@ -13,6 +13,21 @@
     padding: 32px;
     background-color: #D9E1E110;
     gap: 24px;
+    position: relative;
+}
+
+.container__background--error {
+    width: 100%;
+    height: 100%;
+    background-color: #d9e1e13b;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+}
+
+.container__background {
+    display: none;
 }
 
 .main__head {
@@ -83,6 +98,23 @@
     align-items: center;
     flex: 1;
     gap: 32px;
+    position: relative;
+}
+
+.form__inputs .input__text:nth-child(4) .container__input .input-form {
+    padding-right: 30px;
+}
+
+.input__text > .container__button {
+    position: absolute;
+    display: flex;
+    justify-self: flex-end;
+    right: 0;
+    margin: 0px 20px;
+}
+
+.input__text > .container__button .button-onlyIcon:hover {
+    outline: none;
 }
 
 .form__buttons {

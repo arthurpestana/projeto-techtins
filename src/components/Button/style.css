@@ -103,4 +103,9 @@
     align-items: center;
     gap: 8px;
     text-align: center;
+    transition: ease-in-out 0.2s;
+}
+
+.button__label span {
+    transition: ease-in-out 0.2s;
 }

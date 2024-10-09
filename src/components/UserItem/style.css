@@ -6,11 +6,13 @@
 }
 
 .container__userItem {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 12px 0px;
     border-bottom: 1px solid #A2A1A880;
+    gap: 16px;
 }
 
 .userItem--placeholder * {
@@ -22,6 +24,15 @@
     gap: 8px;
     flex: 1;
     align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item__component p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .item__icon {

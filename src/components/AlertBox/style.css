@@ -1,0 +1,70 @@
+.container__alert {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    border-radius: 16px;
+    padding: 32px 64px;
+    background-color: white;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05);
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    animation: slideDown 1s ease-out forwards;
+    max-width: 600px;
+    z-index: 1000;
+}
+
+@keyframes slideDown {
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 50%;
+    }
+    
+}
+
+.container__alert--success {
+    background-color: #3fc289f5;
+}
+
+.container__alert--error {
+    background-color: #F45B69;
+}
+
+.alert__button {
+    position: absolute;
+    cursor: pointer;
+    padding: 4px;
+    top: 4px;
+    right: 4px;
+}
+
+.alert__button .button-onlyIcon:hover {
+    outline: none;
+}
+
+.alert__message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.alert__message h1 {
+    font-family: "Satoshi-Variable";
+    font-size: 32px;
+    font-weight: 500;
+    color: #FFF;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.alert__message p {
+    font-family: "Satoshi-Variable";
+    font-size: 20px;
+    font-weight: 400;
+    color: #FFF;
+}   

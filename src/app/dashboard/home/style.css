@@ -49,6 +49,17 @@
 
 .header__image {
     width: 35%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    object-fit: cover;
+}
+
+.header__image img {
+    object-fit: cover;
+    border-radius: 16px;
 }
 
 .main__dashboard {
@@ -80,4 +91,158 @@
     flex-direction: column;
     width: 100%;
     padding: 0px 16px;
+}
+
+@media (max-width: 1200px) {
+    .main__header {
+        gap: 32px;
+    }
+
+    .header__info h1{
+        font-size: 34px;
+    }
+
+    .header__image {
+        object-fit: cover;
+        width: 30%;
+    }
+
+    .header__image img {
+        border-radius: 16px;
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .recent__content {
+        padding: 0px 0px;
+    }
+
+    .recent__content .container__userItem .item__component{
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1024px) {
+    .main__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header__info {
+        width: 100%;
+    }
+
+    .header__image {
+        object-fit: contain;
+        width: 100%;
+        height: 150px;
+    }
+
+    .header__image img {
+        border-radius: 16px;
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .main__dashboard {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .main__recent-activities {
+        gap: 4px;
+    }
+}
+
+/* Para telas menores que 768px (tablets e dispositivos móveis) */
+@media (max-width: 768px) {
+    .container__main {
+        padding: 16px;
+    }
+
+    .main__header {
+        padding: 16px;
+        gap: 24px;
+    }
+
+    .header__image {
+        object-fit: contain;
+        width: 100%;
+        height: 100px;
+    }
+
+    .header__image img {
+        border-radius: 16px;
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .header__info {
+        gap: 4px;
+    }
+
+    .header__info h1 {
+        font-size: 28px;
+    }
+
+    .header__info p {
+        font-size: 16;
+    }
+
+    .main__dashboard {
+        gap: 12px;
+    }
+
+    .main__dashboard .container__card .card__value p {
+        font-size: 20px;
+    }
+
+    .main__recent-activities {
+        padding: 16px;
+    }
+
+    .recent__title h2 {
+        font-size: 18px;
+    }
+
+    .recent__content .container__userItem {
+        gap: 8px;
+    }
+
+    .recent__content > .container__userItem > .item__component{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 20px;
+    }
+
+    .recent__content > .container__userItem > .item__component p {
+        font-size: 14px;
+    }
+}
+
+/* Para telas menores que 480px (celulares pequenos) */
+@media (max-width: 480px) {
+    .header__info h1 {
+        font-size: 24px;
+    }
+
+    .header__info p {
+        font-size: 14px;
+    }
+
+    .main__recent-activities {
+        padding: 12px;
+    }
+
+    .recent__title h2 {
+        font-size: 16px;
+    }
 }

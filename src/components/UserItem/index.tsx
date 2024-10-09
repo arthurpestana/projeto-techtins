@@ -3,6 +3,7 @@ import axios from 'axios';
 import './style.css'
 
 import EyeIcon from '@/../public/icons/eye-icon.svg';
+import EyeSlachIcon from "@/../public/icons/eye-slash-icon.svg";
 import TrashIcon from "@/../public/icons/bin-icon.svg";
 import EditIcon from "@/../public/icons/pencil-edit-icon.svg"
 
@@ -112,7 +113,7 @@ const UserItem: React.FC<UserItemProps> = ({Icon, userName, adminName, date, pla
                 {placeholder?<p>{edit}</p>:<div className='item__options'>
                     <Button onlyIcon outline Icon={TrashIcon} type="button" onClick={delUser}></Button>
                     <Button onlyIcon outline Icon={EditIcon} type="button" onClick={editUser}></Button>
-                    {<Button onlyIcon outline Icon={EyeIcon} type="button" onClick={viewUser}></Button>}
+                    {<Button onlyIcon outline Icon={!onViewUser?EyeIcon:EyeSlachIcon} type="button" onClick={viewUser}></Button>}
                 </div>}
             </div>}
         </div>

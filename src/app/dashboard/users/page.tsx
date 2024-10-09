@@ -73,6 +73,7 @@ export default function UserPage() {
                 <div className="userList__main">
                     <UserItem userName='Usuário' id={"ID Usuário"} userFunc={"Função"} date='Data de Cadastro' userStatus={"Status"} placeholder edit={"Opções"}/>
                     {searchValue?users.filter((item) => (item.nome.toLowerCase()+item.sobrenome.toLowerCase()).includes(searchValue.toLowerCase())).slice(pageValue*quantUserList, pageValue*quantUserList+quantUserList).map((item) => {
+                        setPageValue(0)
                         return (<UserItem key={item.id} id={item.id} Icon={UserIcon} userName={item.nome+" "+item.sobrenome} userFunc={item.funcao} date={item.dataCadastro.toString()} userStatus={item.status} edit handleClick={() => setRefreshData(!refreshData)}/>)
                     }):
                     users.slice(pageValue*quantUserList, pageValue*quantUserList+quantUserList).map((item) => {
@@ -86,7 +87,7 @@ export default function UserPage() {
                 </div>
                 <div className="userList__pages">
                     {/*<ChevronIcon width={24} heigth={24} style={{cursor: 'pointer', transform: "rotate(90deg)"}}/>*/}
-                    {searchValue?Array.from({ length: Math.ceil(users.filter((item) => (item.nome.toLowerCase()+item.sobrenome.toLowerCase()).includes(searchValue.toLowerCase())).length/5)}, (item, index) =>
+                    {searchValue?Array.from({ length: Math.ceil(users.filter((item) => (item.nome.toLowerCase()+item.sobrenome.toLowerCase()).includes(searchValue.toLowerCase())).length/5)}, (item, index) => 
                         index==pageValue?(<Button key={index} text={(index+1).toString()} type="button" outline page active onClick={() => {setPageValue(index)}}/>):(<Button key={index} text={(index+1).toString()} type="button" onClick={() => {setPageValue(index)}} outline page/>)    
                     ):Array.from({ length: Math.ceil(users.length/quantUserList)}, (item, index) => 
                         index==pageValue?(<Button key={index} text={(index+1).toString()} type="button" outline page active onClick={() => {setPageValue(index)}}/>):(<Button key={index} text={(index+1).toString()} type="button" onClick={() => {setPageValue(index)}} outline page/>)
