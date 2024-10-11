@@ -38,7 +38,12 @@ const CadUser = () => {
 
     async function getUserId() {
         if (userId) {
-            await axios.get(`http://localhost:8080/users/${userId}`)
+            const token = localStorage.getItem('token')
+            await axios.get(`http://localhost:8080/users/${userId}`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            })
             .then((response) => {
                 console.log(response)
                 setNome(response.data.nome)

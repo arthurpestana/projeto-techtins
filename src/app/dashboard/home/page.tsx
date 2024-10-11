@@ -1,6 +1,6 @@
 'use client'
 
-import React, { ReactElement } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import {useEffect, useState} from 'react'
 import axios from 'axios'
@@ -45,7 +45,12 @@ export default function Home() {
 
   async function getHistoryUsers() {
     try {
-      const response = await axios.get('http://localhost:8080/users/history');
+      const token = localStorage.getItem('token')
+      const response = await axios.get('http://localhost:8080/users/history', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
       setUsersHistory(response.data)
     } 
     catch (err) {
@@ -55,7 +60,12 @@ export default function Home() {
 
   async function getAllUsers() {
     try {
-      const response = await axios.get('http://localhost:8080/users');
+      const token = localStorage.getItem('token')
+      const response = await axios.get('http://localhost:8080/users', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
       const currentDate = new Date();
       const formattedDate = `${currentDate.getDate().toString().padStart(2, '0')}/${(currentDate.getMonth() + 1).toString().padStart(2, "0")}/${currentDate.getFullYear()}`;
 

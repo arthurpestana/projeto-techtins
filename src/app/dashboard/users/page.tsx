@@ -32,6 +32,7 @@ interface User {
 
 export default function UserPage() {
     const router = useRouter();
+    const token = localStorage.getItem('token')
 
     const [refreshData, setRefreshData] = useState<boolean>(false)
     const [pageValue, setPageValue] = useState(0)
@@ -40,7 +41,11 @@ export default function UserPage() {
 
     async function getUsers() {
         try {
-            const response = await axios.get('http://localhost:8080/users');
+            const response = await axios.get('http://localhost:8080/users', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
             setUsers(response.data)
             console.log(users)
             console.log(refreshData)

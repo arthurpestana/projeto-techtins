@@ -10,7 +10,7 @@ import '../../globals.css';
 
 import InputForm from '../../../components/Input'
 import Button from '../../../components/Button'
-import AlertBox from '@/components/AlertBox';
+//import AlertBox from '@/components/AlertBox';
 
 export default function LoginPage() {
     const router = useRouter();
