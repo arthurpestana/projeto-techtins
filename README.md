@@ -1,16 +1,18 @@
-## Sistema de Gerenciamento de Usuários - Loja SneakerShop
+# Sistema de Gerenciamento de Usuários - Loja SneakerShop
+> Status do Projeto: Concluído! :heavy_check_mark:
 
 Documentação do **Sistema de Gerenciamento de Usuários** para a loja **SneakerShop**. O sistema foi desenvolvido, visando proporcionar uma interface intuitiva e funcional para os administradores da loja, facilitando a gestão de usuários de forma eficiente.
 
-#### Objetivo
+## Objetivo
 
 O objetivo principal desta sistema é oferecer uma solução simples e eficaz para os administradores do SneakerShop monitorarem e gerenciarem os perfis de usuários, incluindo funcionalidades como:
 
-- Criação, edição e remoção de contas de usuários
-- Visualização de histórico de operações recentes
-- Visualização de todos os usuários cadastrados
+- Gerenciar usuários (administradores, clientes e funcionários).
+- Cadastrar, visualizar, editar e excluir usuários do sistema.
+- Visualizar o histórico de operações recentes
+- Garantir a segurança do acesso, com autenticação segura para que apenas administradores possam gerenciar os dados dos usuários.
 
-#### Principais Telas do Design
+## Layout da Aplicação
 
 1. **Login**: Página para acesso dos administradores no sistema.
 
@@ -28,23 +30,159 @@ O objetivo principal desta sistema é oferecer uma solução simples e eficaz pa
 
    ![Cadastro e Edição de Usuário](./public/design/cad-pag.png)
 
-
-
 Para mais detalhes, acesse o [projeto no Figma](https://www.figma.com/design/SJuZt1hepNeWCXbaC9Ls9p/Gerenciamento-de-Usu%C3%A1rios---SneakerShop?node-id=3019-2807&t=JGKBrdmabTsH7u8N-1).
 
----
 
-## Instalar dependências
+## Funcionalidades
+
+- [x] Integração com a API RESTful
+- [x] Login de Administrador
+   - [x] Acesso restrito e proteção via autenticação
+- [x] Exibir todos os usuários cadastrados no sistema
+- [x] Pesquisa de usuários
+- [x] Funcionalidades de edição e exclusão de usuários no sistema
+- [x] Exibição de histórico de operações recentes
+- [x] Feedback visual e interativo
+
+## Estruturação de Rotas
+
+```
+.
+├── public
+│   ├── design
+│   ├── docs
+│   ├── icons
+│   ├── images
+│   └── favicon.ico
+│
+├── src/app
+│   │
+│   ├── auth
+│   │   └── login
+│   │       └── style.tsx
+│   │
+│   ├── dashboard
+│   │    │
+│   │    ├── home
+│   │    │   ├── page.tsx
+│   │    │   └── style.tsx
+│   │    │
+│   │    ├── users
+│   │    │   ├── cadUser
+│   │    │   │   └── page.tsx
+│   │    │   ├── page.tsx
+│   │    │   └── style.css
+│   │    └── layout.tsx
+│   │
+|   ├── globals.css
+|   ├── layout.tsx
+|   ├── page.tsx
+|   |
+│   ├── assets/fonts
+|   |
+│   └── components
+│        ├── AlertBox
+│        ├── Button
+│        ├── Card
+│        ├── Header
+│        ├── Input
+│        ├── InputDropdown
+│        ├── SideBar
+│        └── UserItem
+│
+├── .eslintrc.json
+├── .gitignore
+├── next-env.d.ts
+├── next.config.mjs
+├── package.json
+├── package-lock.json
+└── postcss.config.mjs
+
+```
+
+#### Detalhes
+
+- ***public/***: Contém arquivos estáticos acessíveis diretamente pela URL (imagens, ícones, etc.).
+- ***src/app/***: Diretório raiz para definir as rotas da aplicação.
+- ***src/auth/login/***: Rotas de autenticação relacionadas ao login.
+- ***src/dashboard/***: Painel administrativo para usuários autenticados.
+- ***src/app/dashboard/home/***: Página inicial da aplicação, com informações gerais e navegação.
+- ***src/app/dashboard/users/***: Diretório para gerenciar usuários, com subdiretório para cadastro e estilos específicos.
+   - ***src/app/dashboard/users/cadUser/***: Sub-Rota para cadastro ou edição de usuários.
+- ***src/app/components/***: Componentes reutilizáveis da interface, como botões, inputs, e cards.
+
+## Tecnologias
+
+- [Node.js](https://nodejs.org/en/)
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://pt-br.reactjs.org/)
+
+## Pré-Requisitos
+
+#### Node.js
+É necessário instalar o [Node.js](https://nodejs.org/en/) para rodar o projeto. O **Node.js** é uma plataforma para executar JavaScript no lado do servidor e é necessário para o NextJs funcionar.
+
+- **Versão Requerida**: 14.x ou superior.
+  
+Você pode verificar a versão instalada com o seguinte comando no terminal:
+
+```bash
+node -v
+```
+
+#### Gerenciador de Pacotes
+
+Next.js utiliza npm ou Yarn para gerenciar suas dependências. O npm já vem instalado com o Node.js, mas se preferir utilizar o Yarn, você pode instalá-lo globalmente:
+
+```bash
+npm install -g yarn
+```
+
+Verifique a versão instalada do npm ou Yarn com os comandos:
+
+```bash
+npm -v
+```
+```bash
+yarn -v
+```
+
+## Dependências
+
+#### AXIOS
+
+```bash
+npm install axios
+``` 
 
 #### Pacote @svgr/webpack
 
-```npm install @svgr/webpack --save-dev```
+```bash
+npm install @svgr/webpack --save-dev
+```
 
+#### Pacote jwt-decoded
+
+```bash
 npm install jwt-decode
+```
 
-## Execução
+## Execução da Aplicação
 
-Primeiro, execute o servidor de desenvolvimento:
+1º Siga a documentação de execução da API
+
+https://github.com/arthurpestana/projeto-techtins-backend
+
+2º No terminal, clone o projeto:
+
+```bash
+git clone https://github.com/React-Bootcamp-WoMarkersCode/certificate-generator
+```
+
+3º Acesse o diretório do projeto e instale todas as dependências citadas anteriormente.
+
+Por fim, execute o servidor de desenvolvimento:
 
 ```bash
 npm run dev
@@ -56,17 +194,9 @@ pnpm dev
 
 Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
-## Lista de Tarefas
+## Licença 
 
-- [x] **Desing**
-- [x] **Desenvolver todas as páginas**
-  - [x] Login
-  - [x] Home
-  - [x] Lista de Usuários
-  - [x] Cadastro de Usuários
-- [x] **Configurar funcionalidades**
-- [x] **Integrar com API RESTful**
-- [ ] **Gerenciar estados**
+The [MIT License]() (MIT)
 
-
+Copyright :copyright: 2024 - Projeto-Techtins
 
