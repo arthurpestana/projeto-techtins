@@ -47,7 +47,7 @@ const InputDropdown: React.FC<InputDropdownProps> = ({ options, label, placehold
       {label && <label className='dropdown__label' htmlFor='dropdown'>{label}</label>}
       <div className={`dropdown__select ${isOpen ? 'open' : ''}`} onClick={toggleDropdown}>
         <div className={`dropdown__selected ${highlightedOption === placeholder && 'placeholder-item--highlighted'}`}>
-          {selectedOption&&selectedOption?.charAt(0).toUpperCase()+selectedOption?.slice(1) || <span style={{color: '#A2A1A8', fontSize: '18px'}}>{placeholder}</span>}
+          {selectedOption&&selectedOption?.charAt(0).toUpperCase()+selectedOption?.slice(1) || <span>{placeholder}</span>}
         </div>
         <div className="dropdown__arrow">
             <ChevronIcon width="25" height="25" stroke="#16151C"/>

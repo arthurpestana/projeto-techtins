@@ -23,7 +23,7 @@ const Button: React.FC<ButtonProps> = ({ text, onClick, type = "button", Icon, o
                 <span className={`button__label`}>{Icon&&<Icon width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" stroke={outline?"#16151C":mini?"#A2A1A8":"#FFFFFF"}/>}</span>
             </button>:
             <button type={type} onClick={onClick} className={`${mini?"button-mini":"button-box"} ${outline&&'button-box--outline'}`}>
-                <span className={`button__label`}>{Icon&&<Icon width="20" height="20" viewBox="0 0 24 24" stroke={outline?"#16151C":mini?"#A2A1A8":"#FFFFFF"}/>} {text}</span>
+                <span className={`button__label`}>{Icon&&<Icon width={20} height={20} viewBox="0 0 24 24" stroke={outline?"#16151C":mini?"#A2A1A8":"#FFFFFF"}/>} <p>{text}</p></span>
             </button>}
         </div>
     )

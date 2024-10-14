@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {jwtDecode} from 'jwt-decode';
 import { useRouter } from 'next/navigation';
 
@@ -13,6 +13,7 @@ interface JwtPayload {
 
 export default function DashboardLayout({ children }: {children: React.ReactNode}) {
     const router = useRouter()
+    const [openSideBar, setOpenSideBar] = useState<boolean>(false);
 
     useEffect(() => {
       const token = localStorage.getItem('token');
@@ -33,9 +34,9 @@ export default function DashboardLayout({ children }: {children: React.ReactNode
 
     return(
       <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
-        <Header/>
+        <Header openSideBar={() => setOpenSideBar(!openSideBar)}/>
         <div style={{ display: 'flex', flex: 1 }}>
-          <SideBar/>
+          <SideBar openSideBar={openSideBar}/>
           {children}
         </div>
       </div>

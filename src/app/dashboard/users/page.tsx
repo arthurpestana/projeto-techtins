@@ -78,7 +78,6 @@ export default function UserPage() {
                 <div className="userList__main">
                     <UserItem userName='Usuário' id={"ID Usuário"} userFunc={"Função"} date='Data de Cadastro' userStatus={"Status"} placeholder edit={"Opções"}/>
                     {searchValue?users.filter((item) => (item.nome.toLowerCase()+item.sobrenome.toLowerCase()).includes(searchValue.toLowerCase())).slice(pageValue*quantUserList, pageValue*quantUserList+quantUserList).map((item) => {
-                        setPageValue(0)
                         return (<UserItem key={item.id} id={item.id} Icon={UserIcon} userName={item.nome+" "+item.sobrenome} userFunc={item.funcao} date={item.dataCadastro.toString()} userStatus={item.status} edit handleClick={() => setRefreshData(!refreshData)}/>)
                     }):
                     users.slice(pageValue*quantUserList, pageValue*quantUserList+quantUserList).map((item) => {

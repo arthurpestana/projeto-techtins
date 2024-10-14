@@ -11,8 +11,13 @@ import ChevronIcon from '@/../public/icons/chevron-icon.svg'
 import LogoutIcon from '@/../public/icons/arrow-right-start-on-rectangle.svg'
 
 import Button from "../Button";
+import HamburguerButton from "./HamburguerButton";
 
-const Header = () => {
+interface HeaderProps {
+    openSideBar: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({openSideBar}) => {
     interface TokenPayload {
         sub: string; // O nome de usuário, geralmente armazenado no campo 'sub'
         username: string; // O e-mail do administrador
@@ -21,7 +26,8 @@ const Header = () => {
     }
 
     const [userAdmin, setUserAdmin] = useState<TokenPayload | null>(null)
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpenDropdown, setIsOpenDropdown] = useState(false);
+    const [isOpenHamburguer, setIsOpenHamburguer] = useState(false);
 
     function getAdminDetailsFromToken(): TokenPayload | null | undefined {
         try {
@@ -46,7 +52,7 @@ const Header = () => {
     }
 
     function handleDropdown() {
-        setIsOpen(!isOpen)
+        setIsOpenDropdown(!isOpenDropdown)
     }
 
     function handleLogout() {
@@ -60,6 +66,7 @@ const Header = () => {
 
     return(
         <div className="container__header">
+            <HamburguerButton isOpen={isOpenHamburguer} setIsOpen={() => {setIsOpenHamburguer(!isOpenHamburguer); openSideBar()}}/>
             <div className="header__logo">
                 <Image src={'/images/logo.png'} alt='Logo' layout="intrinsic" width={32} height={32}/>
                 <h2>SneakerShop</h2>
@@ -77,10 +84,10 @@ const Header = () => {
                         <span className="name__title">{userAdmin?.username}</span>
                         <span className="name__func">{userAdmin?.groups[0]}</span>
                     </div>
-                    <button onClick={handleDropdown} className={`dropdown_button ${isOpen ? 'button--active' : ''}`}>
+                    <button onClick={handleDropdown} className={`dropdown_button ${isOpenDropdown ? 'button--active' : ''}`}>
                         <ChevronIcon width={20} height={20} stroke="#16151C"/>
                     </button>
-                    <div className={`dropdown_options ${isOpen ? 'dropdown--active' : ''}`}>
+                    <div className={`dropdown_options ${isOpenDropdown ? 'dropdown--active' : ''}`}>
                         <Button Icon={LogoutIcon} text="Logout" type="button" outline onClick={handleLogout}/>
                     </div>
                 </div>

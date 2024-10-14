@@ -33,6 +33,11 @@
     font-size: 18px;
     font-weight: 400;
 }
+
+.dropdown__selected span {
+    color: #A2A1A8;
+    font-size: 18px;
+}
   
 .dropdown__arrow {
     display: flex;

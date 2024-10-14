@@ -6,11 +6,15 @@ import './style.css'
 
 import MenuItem from './MenuItem'
 import UserIcon from '@/../public/icons/users-icon.svg'
-import SettingIcon from '../../../public/icons/setting-icon.svg'
+//import SettingIcon from '../../../public/icons/setting-icon.svg'
 import HomeIcon from '../../../public/icons/home-icon.svg'
 
 
-const SideBar = () => {
+interface SideBarProps {
+    openSideBar?: boolean;
+}
+
+const SideBar: React.FC<SideBarProps> = ({openSideBar}) => {
     const [activePath, setActivePath] = useState<string>("");
 
     function handleOnClick(url: string) {
@@ -24,7 +28,7 @@ const SideBar = () => {
     }, []);
 
     return (
-        <div className="container__sidebar">
+        <div className={`container__sidebar ${openSideBar?"container__sidebar--active":"container__sidebar--closed"}`}>
             <MenuItem Icon={HomeIcon} text={"Home"} active={activePath.startsWith("/dashboard/home")} onClick={handleOnClick} href={"/dashboard/home"}/>
             <MenuItem Icon={UserIcon} text={"Usuários"} active={activePath.startsWith("/dashboard/users")} onClick={handleOnClick} href={"/dashboard/users"}/>
             {/*<MenuItem Icon={SettingIcon} text={"Configurações"} active={activePath.startsWith("/dashboard/settings")} onClick={handleOnClick} href={"/dashboard/settings"}/>*/}
