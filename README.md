@@ -177,7 +177,7 @@ https://github.com/arthurpestana/projeto-techtins-backend
 2º No terminal, clone o projeto:
 
 ```bash
-git clone https://github.com/React-Bootcamp-WoMarkersCode/certificate-generator
+git clone https://github.com/arthurpestana/projeto-techtins.git
 ```
 
 3º Acesse o diretório do projeto e instale todas as dependências citadas anteriormente.
