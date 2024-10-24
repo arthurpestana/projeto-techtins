@@ -118,7 +118,7 @@ Para mais detalhes, acesse o [projeto no Figma](https://www.figma.com/design/SJu
 - [TypeScript](https://www.typescriptlang.org/)
 - [React](https://pt-br.reactjs.org/)
 
-## Pré-Requisitos
+## Requisitos
 
 #### Node.js
 É necessário instalar o [Node.js](https://nodejs.org/en/) para rodar o projeto. O **Node.js** é uma plataforma para executar JavaScript no lado do servidor e é necessário para o NextJs funcionar.
