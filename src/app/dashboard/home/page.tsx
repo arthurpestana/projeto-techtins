@@ -40,7 +40,7 @@ interface User {
 }
 
 export default function Home() {
-  const [usersHistory, setUsersHistory] = useState<UserHistory | []>([])
+  const [usersHistory, setUsersHistory] = useState<UserHistory[]>([])
   const [quantityUsers, setQuantityUsers] = useState<UserQuantity | null>(null)
 
   async function getHistoryUsers() {
@@ -81,8 +81,6 @@ export default function Home() {
       console.log(err)
     }
   }
-  
-  
 
   useEffect(() => {
     getHistoryUsers()
@@ -111,7 +109,6 @@ export default function Home() {
           <h2>Atividades Recentes</h2>
         </div>
         <div className='recent__content'>
-          {console.log(usersHistory)}
           <UserItem adminName='Administrador' userEmail='E-mail do Usuário' userName='Usuário' date='Data' funcHistory="Operação" placeholder/>
           {usersHistory.slice(-5).reverse().map((user: UserHistory, key: number) => {
             return(<UserItem key={key} Icon={UserIcon} adminName={user.adminName} userEmail={user.createdUserEmail} userName={user.createdUserName} date={user.createdDate} funcHistory={user.actionType}/>)
